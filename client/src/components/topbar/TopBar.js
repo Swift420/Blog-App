@@ -1,13 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./topbar.css"
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { Context } from '../../context/Context';
 
 
 
 
 function TopBar() {
-    const user = false;
+    const {user, dispatch} = useContext(Context);
+    const PF = "http://localhost:5000/images/"
+    const handleLogout = () => {
+        dispatch({type: "LOGOUT"})
+    }
     return (
         <div className='top'>
             <div className='topLeft'>
@@ -24,17 +29,19 @@ function TopBar() {
                     <li className='topListItem'> <Link to="/" className='link'>ABOUT</Link></li>
                     <li className='topListItem'> <Link to="/" className='link'>CONTACT</Link></li>
                     <li className='topListItem'> <Link to="/write" className='link'>WRITE</Link></li>
-                    <li className='topListItem'>
+                    <li className='topListItem' onClick={handleLogout}>
                         {user && "LOGOUT"}
                     </li>
                 </ul>
             </div>
             <div className='topRight'>
+                
                 {
                     user ? (
-                        <img 
+                        <Link to="/settings"><img 
                 className='topImg'
-                src='https://c4.wallpaperflare.com/wallpaper/221/96/957/the-mandalorian-star-wars-grogu-hd-wallpaper-preview.jpg'></img>
+                src={PF + user.profilePic}></img>
+                </Link>
                     ) : (
                         <ul className='topList'>
                             <li className='topListItem'><Link className='link' to="/login">Login</Link></li>
@@ -44,6 +51,7 @@ function TopBar() {
                         </ul>
                     )
                 }
+                
                 
                 <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
             </div>
