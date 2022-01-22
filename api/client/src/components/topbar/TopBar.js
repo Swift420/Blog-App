@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import "./topbar.css"
-import styled from 'styled-components'
+
 import { Link } from 'react-router-dom'
 import { Context } from '../../context/Context';
 

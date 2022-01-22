@@ -4,7 +4,7 @@ import Posts from '../../components/posts/Posts';
 import Sidebar from '../../components/sidebar/Sidebar';
 import "./home.css"
 import { useLocation } from 'react-router';
-import { axiosInstance } from '../../../config';
+import { axiosInstance } from '../../config';
 
 
 function Home() {
@@ -15,11 +15,15 @@ function Home() {
 
   useEffect(()=>{
     const fetchPosts = async () => {
-     const res = await axiosInstance.get("/posts" + search);
+     const res = await axiosInstance.get("/posts");
+     console.log(res.data)
+
      setPosts(res.data)
+
+     console.log(posts)
     }
     fetchPosts()
-  },[search])
+  },[])
   return(
     <>
     <Header />

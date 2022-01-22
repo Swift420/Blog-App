@@ -3,8 +3,7 @@ import "./post.css"
 import {Link } from "react-router-dom"
 function Post({post}) {
   const PF = "https://blog-swift.herokuapp.com/images/"
-  console.log(PF);
-  console.log(post.photo);
+  
   return (
   <div className='post'>
     {post.photo && (
