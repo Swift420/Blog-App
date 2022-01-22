@@ -9,7 +9,7 @@ function Header() {
          <span className='headerTitleLg'>Blog</span>
 
      </div>
-     <img className='headerImg' src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"></img>
+     <img className='headerImg' src="https://i.pinimg.com/originals/b9/14/b5/b914b59ab5c248bcc26258424676367d.png"></img>
   </div>;
 }
 

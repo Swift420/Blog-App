@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./register.css"
 import axios from "axios"
+import { axiosInstance } from '../../../config';
 
 function Register() {
   const [username, setUsername] = useState("")
@@ -15,7 +16,7 @@ function Register() {
     setError(false)
 
     try {
-      const res = await axios.post("/auth/register",{
+      const res = await axiosInstance.post("/auth/register",{
         username,
         email,
         password

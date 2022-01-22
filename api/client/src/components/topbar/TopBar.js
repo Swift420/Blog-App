@@ -9,7 +9,7 @@ import { Context } from '../../context/Context';
 
 function TopBar() {
     const {user, dispatch} = useContext(Context);
-    const PF = "http://localhost:5000/images/"
+    const PF = "https://blog-swift.herokuapp.com/images/"
     const handleLogout = () => {
         dispatch({type: "LOGOUT"})
     }
@@ -38,9 +38,7 @@ function TopBar() {
                 
                 {
                     user ? (
-                        <Link to="/settings"><img 
-                className='topImg'
-                src={PF + user.profilePic}></img>
+                        <Link to="/settings" className='link'><i class="fas fa-user-cog"></i>
                 </Link>
                     ) : (
                         <ul className='topList'>
@@ -53,7 +51,7 @@ function TopBar() {
                 }
                 
                 
-                <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
+                
             </div>
             
 
